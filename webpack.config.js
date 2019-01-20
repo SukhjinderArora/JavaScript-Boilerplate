@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: ['./src/js/index.js', './src/styles/main.scss'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -30,7 +30,7 @@ module.exports = {
         use: {
           loader: 'html-loader',
           options: {
-            attrs: ['img:src'],
+            attrs: ['img:src', 'link:href', 'a:href'],
             minimize: !devMode,
           },
         },
